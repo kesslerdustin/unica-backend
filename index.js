@@ -6,7 +6,9 @@ const Product = require('./models/Product');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://unica-frontend.vercel.app']
+}));
 app.use(express.json());
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/unica';
