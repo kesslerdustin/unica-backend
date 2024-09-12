@@ -14,13 +14,15 @@ mongoose.connect(process.env.MONGODB_URI)
 
 // Route to get all products
 app.get('/products', async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json(products);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching products' });
-  }
-});
+    try {
+      const products = await Product.find();
+      res.json(products);
+    } catch (error) {
+      console.error('Error fetching products:', error.message); // Log error message to Heroku logs
+      res.status(500).json({ message: 'Error fetching products', error: error.message });
+    }
+  });
+  
 
 // Route to create a new product
 app.post('/products', async (req, res) => {
