@@ -7,7 +7,7 @@ const Product = require('./models/Product');
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://unica-frontend-eb6khglfx-dustins-projects-c59b5be6.vercel.app'],
+  origin: ['http://localhost:19006', 'http://localhost:3000', 'https://unica-frontend-eb6khglfx-dustins-projects-c59b5be6.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
